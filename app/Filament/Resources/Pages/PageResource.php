@@ -24,9 +24,20 @@ class PageResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
-    protected static ?string $modelLabel = 'Halaman Statis';
+    public static function getModelLabel(): string
+    {
+        return __('Halaman Statis');
+    }
 
-    protected static ?string $pluralModelLabel = 'Halaman Statis';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Halaman Statis');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Halaman Statis');
+    }
 
     public static function form(Schema $schema): Schema
     {

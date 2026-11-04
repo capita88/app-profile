@@ -21,48 +21,48 @@ class PageForm
         return $schema
             ->components([
                 Grid::make(3)->schema([
-                    Section::make('Konten Halaman')
+                    Section::make(__('Konten Halaman'))
                         ->columnSpan(2)
                         ->schema([
                             TextInput::make('title')
-                                ->label('Judul Halaman')
+                                ->label(__('Judul Halaman'))
                                 ->required()
                                 ->maxLength(255)
                                 ->live(onBlur: true)
                                 ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? ''))),
                             TextInput::make('slug')
-                                ->label('Slug URL')
+                                ->label(__('Slug URL'))
                                 ->required()
                                 ->maxLength(255)
                                 ->unique(ignoreRecord: true),
                             RichEditor::make('content')
-                                ->label('Isi Konten')
+                                ->label(__('Isi Konten'))
                                 ->required()
                                 ->fileAttachmentsDisk('public')
                                 ->fileAttachmentsDirectory('pages/attachments')
                                 ->fileAttachmentsVisibility('public')
                                 ->columnSpanFull(),
                         ]),
-                    Section::make('Pengaturan')
+                    Section::make(__('Pengaturan'))
                         ->columnSpan(1)
                         ->schema([
                             FileUpload::make('image')
-                                ->label('Gambar Sampul (Header Banner)')
+                                ->label(__('Gambar Sampul (Header Banner)'))
                                 ->image()
                                 ->disk('public')
                                 ->directory('pages')
                                 ->visibility('public'),
                             Select::make('status')
-                                ->label('Status')
+                                ->label(__('Status'))
                                 ->options(PageStatus::class)
                                 ->default(PageStatus::Published)
                                 ->required(),
                             TextInput::make('sort_order')
-                                ->label('Urutan')
+                                ->label(__('Urutan'))
                                 ->numeric()
                                 ->default(0),
                             Toggle::make('show_in_menu')
-                                ->label('Tampilkan di Pilihan Menu Navigasi')
+                                ->label(__('Tampilkan di Pilihan Menu Navigasi'))
                                 ->default(true),
                         ]),
                 ]),

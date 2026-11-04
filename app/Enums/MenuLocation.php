@@ -13,9 +13,9 @@ enum MenuLocation: string implements HasLabel
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::Header => 'Header (Navigasi Atas)',
-            self::Footer => 'Footer (Navigasi Bawah)',
-            self::Sidebar => 'Sidebar (Navigasi Samping)',
+            self::Header => __('Header (Navigasi Atas)'),
+            self::Footer => __('Footer (Navigasi Bawah)'),
+            self::Sidebar => __('Sidebar (Navigasi Samping)'),
         };
     }
 }

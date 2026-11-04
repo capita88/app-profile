@@ -23,20 +23,20 @@ class StatsOverviewWidget extends BaseStatsOverviewWidget
         $activeFaqs = Faq::where('is_active', true)->count();
 
         return [
-            Stat::make('Artikel Terbit', $publishedPosts)
-                ->description('Total artikel aktif di portal')
+            Stat::make(__('Artikel Terbit'), $publishedPosts)
+                ->description(__('Total artikel aktif di portal'))
                 ->descriptionIcon(Heroicon::OutlinedDocumentText)
                 ->color('success'),
-            Stat::make('Pertanyaan Masuk', $totalQuestions)
-                ->description('Aspirasi dari masyarakat')
+            Stat::make(__('Pertanyaan Masuk'), $totalQuestions)
+                ->description(__('Aspirasi dari masyarakat'))
                 ->descriptionIcon(Heroicon::OutlinedChatBubbleBottomCenterText)
                 ->color('primary'),
-            Stat::make('Perlu Ditanggapi', $pendingQuestions)
-                ->description('Menunggu respon petugas')
+            Stat::make(__('Perlu Ditanggapi'), $pendingQuestions)
+                ->description(__('Menunggu respon petugas'))
                 ->descriptionIcon(Heroicon::OutlinedClock)
                 ->color($pendingQuestions > 0 ? 'warning' : 'gray'),
-            Stat::make('FAQ Aktif', $activeFaqs)
-                ->description('Informasi tanya jawab publik')
+            Stat::make(__('FAQ Aktif'), $activeFaqs)
+                ->description(__('Informasi tanya jawab publik'))
                 ->descriptionIcon(Heroicon::OutlinedInformationCircle)
                 ->color('info'),
         ];

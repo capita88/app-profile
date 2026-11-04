@@ -17,36 +17,36 @@ class QuestionTopicForm
     {
         return $schema
             ->components([
-                Section::make('Informasi Topik Pertanyaan')
+                Section::make(__('Informasi Topik Pertanyaan'))
                     ->schema([
                         Grid::make(2)->schema([
                             TextInput::make('name')
-                                ->label('Nama Topik')
-                                ->placeholder('Contoh: Administrasi Umum, Pelayanan Publik')
+                                ->label(__('Nama Topik'))
+                                ->placeholder(__('Contoh: Administrasi Umum, Pelayanan Publik'))
                                 ->required()
                                 ->maxLength(255)
                                 ->live(onBlur: true)
                                 ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? ''))),
                             TextInput::make('slug')
-                                ->label('Slug URL')
+                                ->label(__('Slug URL'))
                                 ->required()
                                 ->maxLength(255)
                                 ->unique(ignoreRecord: true),
                         ]),
                         Textarea::make('description')
-                            ->label('Keterangan Topik')
+                            ->label(__('Keterangan Topik'))
                             ->rows(3)
                             ->columnSpanFull(),
                         Grid::make(3)->schema([
                             TextInput::make('icon')
-                                ->label('Ikon')
+                                ->label(__('Ikon'))
                                 ->maxLength(255),
                             TextInput::make('sort_order')
-                                ->label('Urutan')
+                                ->label(__('Urutan'))
                                 ->numeric()
                                 ->default(0),
                             Toggle::make('is_active')
-                                ->label('Aktif')
+                                ->label(__('Aktif'))
                                 ->default(true)
                                 ->inline(false),
                         ]),

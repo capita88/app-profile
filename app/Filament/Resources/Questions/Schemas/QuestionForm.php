@@ -16,52 +16,52 @@ class QuestionForm
     {
         return $schema
             ->components([
-                Section::make('Data Penanya & Topik')
+                Section::make(__('Data Penanya & Topik'))
                     ->schema([
                         Grid::make(3)->schema([
                             TextInput::make('name')
-                                ->label('Nama Lengkap')
+                                ->label(__('Nama Lengkap'))
                                 ->required()
                                 ->maxLength(255),
                             TextInput::make('email')
-                                ->label('Alamat Email')
+                                ->label(__('Alamat Email'))
                                 ->email()
                                 ->required()
                                 ->maxLength(255),
                             TextInput::make('phone')
-                                ->label('Nomor WhatsApp / HP')
+                                ->label(__('Nomor WhatsApp / HP'))
                                 ->tel()
                                 ->maxLength(255),
                         ]),
                         Grid::make(3)->schema([
                             Select::make('topic_id')
-                                ->label('Topik Pertanyaan')
+                                ->label(__('Topik Pertanyaan'))
                                 ->relationship('topic', 'name')
                                 ->searchable()
                                 ->preload()
                                 ->columnSpan(2),
                             Select::make('status')
-                                ->label('Status Pertanyaan')
+                                ->label(__('Status Pertanyaan'))
                                 ->options(QuestionStatus::class)
                                 ->default(QuestionStatus::Pending)
                                 ->required()
                                 ->columnSpan(1),
                         ]),
                     ]),
-                Section::make('Uraian Pertanyaan')
+                Section::make(__('Uraian Pertanyaan'))
                     ->schema([
                         TextInput::make('subject')
-                            ->label('Subjek / Judul Pertanyaan')
+                            ->label(__('Subjek / Judul Pertanyaan'))
                             ->required()
                             ->maxLength(255)
                             ->columnSpanFull(),
                         Textarea::make('body')
-                            ->label('Isi Pertanyaan')
+                            ->label(__('Isi Pertanyaan'))
                             ->rows(6)
                             ->required()
                             ->columnSpanFull(),
                         TextInput::make('ip_address')
-                            ->label('IP Address Pengirim')
+                            ->label(__('IP Address Pengirim'))
                             ->disabled()
                             ->dehydrated(false),
                     ]),

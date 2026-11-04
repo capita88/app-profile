@@ -18,51 +18,51 @@ class MenuForm
     {
         return $schema
             ->components([
-                Section::make('Informasi Menu')
+                Section::make(__('Informasi Menu'))
                     ->schema([
                         Grid::make(3)->schema([
                             TextInput::make('name')
-                                ->label('Nama Menu')
-                                ->placeholder('Contoh: Menu Utama')
+                                ->label(__('Nama Menu'))
+                                ->placeholder(__('Contoh: Menu Utama'))
                                 ->required()
                                 ->maxLength(255),
                             Select::make('location')
-                                ->label('Lokasi Penempatan')
+                                ->label(__('Lokasi Penempatan'))
                                 ->options(MenuLocation::class)
                                 ->required(),
                             Toggle::make('is_active')
-                                ->label('Aktif')
+                                ->label(__('Aktif'))
                                 ->default(true)
                                 ->inline(false),
                         ]),
                     ]),
-                Section::make('Item Menu Navigasi')
-                    ->description('Kelola daftar tautan menu di bawah ini.')
+                Section::make(__('Item Menu Navigasi'))
+                    ->description(__('Kelola daftar tautan menu di bawah ini.'))
                     ->schema([
                         Repeater::make('items')
                             ->relationship()
                             ->schema([
                                 TextInput::make('label')
-                                    ->label('Teks Label')
+                                    ->label(__('Teks Label'))
                                     ->required()
                                     ->columnSpan(2),
                                 Select::make('type')
-                                    ->label('Tipe Tautan')
+                                    ->label(__('Tipe Tautan'))
                                     ->options(MenuItemType::class)
                                     ->default(MenuItemType::Custom)
                                     ->required()
                                     ->columnSpan(1),
                                 TextInput::make('url')
-                                    ->label('URL / Path')
-                                    ->placeholder('/tentang-kami atau https://...')
+                                    ->label(__('URL / Path'))
+                                    ->placeholder(__('/tentang-kami atau https://...'))
                                     ->columnSpan(2),
                                 TextInput::make('sort_order')
-                                    ->label('Urutan')
+                                    ->label(__('Urutan'))
                                     ->numeric()
                                     ->default(0)
                                     ->columnSpan(1),
                                 Toggle::make('is_active')
-                                    ->label('Aktif')
+                                    ->label(__('Aktif'))
                                     ->default(true)
                                     ->inline(false)
                                     ->columnSpan(1),

@@ -8,6 +8,7 @@ use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 
 class LatestQuestionsWidget extends TableWidget
@@ -16,7 +17,10 @@ class LatestQuestionsWidget extends TableWidget
 
     protected int|string|array $columnSpan = 'full';
 
-    protected static ?string $heading = 'Pertanyaan Masyarakat Terbaru';
+    public function getTableHeading(): string|Htmlable|null
+    {
+        return __('Pertanyaan Masyarakat Terbaru');
+    }
 
     public function table(Table $table): Table
     {
@@ -24,25 +28,25 @@ class LatestQuestionsWidget extends TableWidget
             ->query(fn (): Builder => Question::query()->latest()->limit(5))
             ->columns([
                 TextColumn::make('created_at')
-                    ->label('Tanggal')
+                    ->label(__('Tanggal'))
                     ->dateTime('d M Y H:i'),
                 TextColumn::make('name')
-                    ->label('Penanya'),
+                    ->label(__('Penanya')),
                 TextColumn::make('subject')
-                    ->label('Subjek')
+                    ->label(__('Subjek'))
                     ->limit(40),
                 TextColumn::make('topic.name')
-                    ->label('Topik')
+                    ->label(__('Topik'))
                     ->badge()
                     ->color('info'),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge(),
             ])
             ->paginated(false)
             ->recordActions([
                 Action::make('review')
-                    ->label('Lihat & Tanggapi')
+                    ->label(__('Lihat & Tanggapi'))
                     ->url(fn (Question $record): string => QuestionResource::getUrl('edit', ['record' => $record])),
             ]);
     }

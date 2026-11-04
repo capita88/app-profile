@@ -17,24 +17,24 @@ class SlideForm
     {
         return $schema
             ->components([
-                Section::make('Informasi Slide')
+                Section::make(__('Informasi Slide'))
                     ->schema([
                         Grid::make(2)->schema([
                             TextInput::make('title')
-                                ->label('Judul Banner')
+                                ->label(__('Judul Banner'))
                                 ->required()
                                 ->maxLength(255),
                             TextInput::make('link_url')
-                                ->label('Tautan Tujuan (Link URL)')
-                                ->placeholder('https://... atau /berita/...')
+                                ->label(__('Tautan Tujuan (Link URL)'))
+                                ->placeholder(__('https://... atau /berita/...'))
                                 ->maxLength(255),
                         ]),
                         Textarea::make('description')
-                            ->label('Keterangan / Sub-judul')
+                            ->label(__('Keterangan / Sub-judul'))
                             ->rows(2)
                             ->columnSpanFull(),
                         FileUpload::make('image')
-                            ->label('Gambar Banner')
+                            ->label(__('Gambar Banner'))
                             ->image()
                             ->disk('public')
                             ->directory('slides')
@@ -43,15 +43,15 @@ class SlideForm
                             ->columnSpanFull(),
                         Grid::make(4)->schema([
                             DatePicker::make('start_date')
-                                ->label('Mulai Tayang'),
+                                ->label(__('Mulai Tayang')),
                             DatePicker::make('end_date')
-                                ->label('Selesai Tayang'),
+                                ->label(__('Selesai Tayang')),
                             TextInput::make('sort_order')
-                                ->label('Urutan')
+                                ->label(__('Urutan'))
                                 ->numeric()
                                 ->default(0),
                             Toggle::make('is_active')
-                                ->label('Aktif')
+                                ->label(__('Aktif'))
                                 ->default(true)
                                 ->inline(false),
                         ]),

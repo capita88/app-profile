@@ -18,32 +18,32 @@ class SlidesTable
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->label('Banner')
+                    ->label(__('Banner'))
                     ->disk('public')
                     ->width(120)
                     ->height(60),
                 TextColumn::make('title')
-                    ->label('Judul')
+                    ->label(__('Judul'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('link_url')
-                    ->label('Tautan')
+                    ->label(__('Tautan'))
                     ->limit(30)
                     ->color('gray'),
                 TextColumn::make('start_date')
-                    ->label('Mulai')
+                    ->label(__('Mulai'))
                     ->date('d M Y')
                     ->sortable(),
                 TextColumn::make('end_date')
-                    ->label('Selesai')
+                    ->label(__('Selesai'))
                     ->date('d M Y')
                     ->sortable(),
                 TextColumn::make('sort_order')
-                    ->label('Urutan')
+                    ->label(__('Urutan'))
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->boolean(),
             ])
             ->defaultSort('sort_order', 'asc')

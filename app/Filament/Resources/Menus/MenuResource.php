@@ -24,9 +24,20 @@ class MenuResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'Menu Navigasi';
+    public static function getModelLabel(): string
+    {
+        return __('Menu Navigasi');
+    }
 
-    protected static ?string $pluralModelLabel = 'Menu Navigasi';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Menu Navigasi');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Menu Navigasi');
+    }
 
     public static function form(Schema $schema): Schema
     {

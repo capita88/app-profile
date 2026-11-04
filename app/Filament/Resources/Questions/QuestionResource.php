@@ -25,9 +25,20 @@ class QuestionResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'Pertanyaan Masyarakat';
+    public static function getModelLabel(): string
+    {
+        return __('Pertanyaan Masyarakat');
+    }
 
-    protected static ?string $pluralModelLabel = 'Pertanyaan Masyarakat';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Pertanyaan Masyarakat');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Pertanyaan Masyarakat');
+    }
 
     public static function form(Schema $schema): Schema
     {

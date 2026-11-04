@@ -24,9 +24,20 @@ class SettingResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'Pengaturan';
+    public static function getModelLabel(): string
+    {
+        return __('Pengaturan');
+    }
 
-    protected static ?string $pluralModelLabel = 'Pengaturan Situs';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Pengaturan Situs');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Pengaturan Situs');
+    }
 
     public static function form(Schema $schema): Schema
     {

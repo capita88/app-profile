@@ -19,29 +19,29 @@ class UsersTable
         return $table
             ->columns([
                 ImageColumn::make('avatar')
-                    ->label('Avatar')
+                    ->label(__('Avatar'))
                     ->circular()
                     ->disk('public'),
                 TextColumn::make('name')
-                    ->label('Nama')
+                    ->label(__('Nama'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('email')
-                    ->label('Email')
+                    ->label(__('Email'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('role')
-                    ->label('Peran')
+                    ->label(__('Peran'))
                     ->badge(),
                 TextColumn::make('created_at')
-                    ->label('Bergabung')
+                    ->label(__('Bergabung'))
                     ->dateTime('d M Y')
                     ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('role')
                     ->options(UserRole::class)
-                    ->label('Filter Peran'),
+                    ->label(__('Filter Peran')),
             ])
             ->recordActions([
                 EditAction::make(),

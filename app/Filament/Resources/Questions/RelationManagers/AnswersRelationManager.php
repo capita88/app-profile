@@ -22,38 +22,52 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification as FacadesNotification;
 
 class AnswersRelationManager extends RelationManager
 {
     protected static string $relationship = 'answers';
 
-    protected static ?string $title = 'Jawaban Resmi';
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        return __('Jawaban Resmi');
+    }
+
+    public static function getModelLabel(): ?string
+    {
+        return __('Jawaban Resmi');
+    }
+
+    public static function getPluralModelLabel(): ?string
+    {
+        return __('Jawaban Resmi');
+    }
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
                 Select::make('user_id')
-                    ->label('Penjawab')
+                    ->label(__('Penjawab'))
                     ->relationship('user', 'name')
                     ->default(fn () => auth()->id())
                     ->required(),
                 Grid::make(3)->schema([
                     Select::make('status')
-                        ->label('Status')
+                        ->label(__('Status'))
                         ->options(AnswerStatus::class)
                         ->default(AnswerStatus::Published)
                         ->required(),
                     Toggle::make('is_published')
-                        ->label('Publikasikan ke Publik / Portal')
+                        ->label(__('Publikasikan ke Publik / Portal'))
                         ->default(true),
                     DateTimePicker::make('answered_at')
-                        ->label('Waktu Menjawab')
+                        ->label(__('Waktu Menjawab'))
                         ->default(now()),
                 ]),
                 RichEditor::make('body')
-                    ->label('Isi Tanggapan / Jawaban')
+                    ->label(__('Isi Tanggapan / Jawaban'))
                     ->required()
                     ->columnSpanFull(),
             ]);
@@ -65,26 +79,26 @@ class AnswersRelationManager extends RelationManager
             ->recordTitleAttribute('id')
             ->columns([
                 TextColumn::make('user.name')
-                    ->label('Petugas Penjawab')
+                    ->label(__('Petugas Penjawab'))
                     ->searchable(),
                 TextColumn::make('body')
-                    ->label('Isi Jawaban')
+                    ->label(__('Isi Jawaban'))
                     ->html()
                     ->limit(100),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge(),
                 IconColumn::make('is_published')
-                    ->label('Publik')
+                    ->label(__('Publik'))
                     ->boolean(),
                 TextColumn::make('answered_at')
-                    ->label('Waktu Dijawab')
+                    ->label(__('Waktu Dijawab'))
                     ->dateTime('d M Y H:i')
                     ->sortable(),
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->label('Tulis Jawaban')
+                    ->label(__('Tulis Jawaban'))
                     ->after(function (QuestionAnswer $record) {
                         $question = $this->getOwnerRecord();
                         if ($record->is_published) {
@@ -102,8 +116,8 @@ class AnswersRelationManager extends RelationManager
                         }
 
                         Notification::make()
-                            ->title('Jawaban Berhasil Disimpan')
-                            ->body('Status pertanyaan telah diperbarui menjadi dijawab.')
+                            ->title(__('Jawaban Berhasil Disimpan'))
+                            ->body(__('Status pertanyaan telah diperbarui menjadi dijawab.'))
                             ->success()
                             ->send();
                     }),

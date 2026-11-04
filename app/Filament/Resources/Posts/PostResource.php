@@ -24,9 +24,20 @@ class PostResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'Artikel';
+    public static function getModelLabel(): string
+    {
+        return __('Artikel');
+    }
 
-    protected static ?string $pluralModelLabel = 'Artikel / Berita';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Artikel / Berita');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Artikel / Berita');
+    }
 
     public static function form(Schema $schema): Schema
     {

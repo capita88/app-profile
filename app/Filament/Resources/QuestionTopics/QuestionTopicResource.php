@@ -24,9 +24,20 @@ class QuestionTopicResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $modelLabel = 'Topik Pertanyaan';
+    public static function getModelLabel(): string
+    {
+        return __('Topik Pertanyaan');
+    }
 
-    protected static ?string $pluralModelLabel = 'Topik Pertanyaan';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Topik Pertanyaan');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Topik Pertanyaan');
+    }
 
     public static function form(Schema $schema): Schema
     {

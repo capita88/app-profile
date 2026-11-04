@@ -17,15 +17,15 @@ class UserForm
     {
         return $schema
             ->components([
-                Section::make('Informasi Akun Pengguna')
+                Section::make(__('Informasi Akun Pengguna'))
                     ->schema([
                         Grid::make(2)->schema([
                             TextInput::make('name')
-                                ->label('Nama Lengkap')
+                                ->label(__('Nama Lengkap'))
                                 ->required()
                                 ->maxLength(255),
                             TextInput::make('email')
-                                ->label('Alamat Email')
+                                ->label(__('Alamat Email'))
                                 ->email()
                                 ->required()
                                 ->maxLength(255)
@@ -33,20 +33,20 @@ class UserForm
                         ]),
                         Grid::make(2)->schema([
                             TextInput::make('password')
-                                ->label('Kata Sandi (Password)')
+                                ->label(__('Kata Sandi (Password)'))
                                 ->password()
                                 ->dehydrateStateUsing(fn ($state) => filled($state) ? Hash::make($state) : null)
                                 ->dehydrated(fn ($state) => filled($state))
                                 ->required(fn (string $operation): bool => $operation === 'create')
                                 ->maxLength(255),
                             Select::make('role')
-                                ->label('Peran (Role)')
+                                ->label(__('Peran (Role)'))
                                 ->options(UserRole::class)
                                 ->default(UserRole::Editor)
                                 ->required(),
                         ]),
                         FileUpload::make('avatar')
-                            ->label('Foto Profil (Avatar)')
+                            ->label(__('Foto Profil (Avatar)'))
                             ->image()
                             ->avatar()
                             ->disk('public')

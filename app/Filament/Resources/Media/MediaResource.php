@@ -24,9 +24,20 @@ class MediaResource extends Resource
 
     protected static ?int $navigationSort = 4;
 
-    protected static ?string $modelLabel = 'Media';
+    public static function getModelLabel(): string
+    {
+        return __('Media');
+    }
 
-    protected static ?string $pluralModelLabel = 'Pustaka Media';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Pustaka Media');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Pustaka Media');
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -20,29 +20,29 @@ class PagesTable
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->label('Sampul')
+                    ->label(__('Sampul'))
                     ->disk('public')
                     ->square(),
                 TextColumn::make('title')
-                    ->label('Judul Halaman')
+                    ->label(__('Judul Halaman'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label(__('Slug'))
                     ->searchable()
                     ->color('gray'),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge(),
                 IconColumn::make('show_in_menu')
-                    ->label('Menu')
+                    ->label(__('Menu'))
                     ->boolean(),
                 TextColumn::make('sort_order')
-                    ->label('Urutan')
+                    ->label(__('Urutan'))
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('updated_at')
-                    ->label('Terakhir Diubah')
+                    ->label(__('Terakhir Diubah'))
                     ->dateTime('d M Y H:i')
                     ->sortable(),
             ])
@@ -50,7 +50,7 @@ class PagesTable
             ->filters([
                 SelectFilter::make('status')
                     ->options(PageStatus::class)
-                    ->label('Filter Status'),
+                    ->label(__('Filter Status')),
             ])
             ->recordActions([
                 EditAction::make(),

@@ -24,9 +24,20 @@ class CategoryResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $modelLabel = 'Kategori';
+    public static function getModelLabel(): string
+    {
+        return __('Kategori');
+    }
 
-    protected static ?string $pluralModelLabel = 'Kategori';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Kategori');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Kategori');
+    }
 
     public static function form(Schema $schema): Schema
     {

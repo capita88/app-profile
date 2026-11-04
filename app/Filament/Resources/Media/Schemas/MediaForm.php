@@ -14,10 +14,10 @@ class MediaForm
     {
         return $schema
             ->components([
-                Section::make('Upload Media')
+                Section::make(__('Upload Media'))
                     ->schema([
                         FileUpload::make('file_path')
-                            ->label('Unggah Berkas / Gambar')
+                            ->label(__('Unggah Berkas / Gambar'))
                             ->disk('public')
                             ->directory('media')
                             ->visibility('public')
@@ -25,14 +25,14 @@ class MediaForm
                             ->preserveFilenames()
                             ->columnSpanFull(),
                         TextInput::make('file_name')
-                            ->label('Nama Berkas')
-                            ->placeholder('Nama berkas asli')
+                            ->label(__('Nama Berkas'))
+                            ->placeholder(__('Nama berkas asli'))
                             ->maxLength(255),
                         TextInput::make('alt_text')
-                            ->label('Deskripsi / Alt Text')
+                            ->label(__('Deskripsi / Alt Text'))
                             ->maxLength(255),
                         Select::make('user_id')
-                            ->label('Pengunggah')
+                            ->label(__('Pengunggah'))
                             ->relationship('user', 'name')
                             ->default(fn () => auth()->id()),
                     ]),

@@ -21,35 +21,35 @@ class PostsTable
         return $table
             ->columns([
                 ImageColumn::make('image')
-                    ->label('Gambar')
+                    ->label(__('Gambar'))
                     ->disk('public')
                     ->square(),
                 TextColumn::make('title')
-                    ->label('Judul')
+                    ->label(__('Judul'))
                     ->searchable()
                     ->sortable()
                     ->wrap()
                     ->description(fn ($record) => $record->summary ? Str::limit($record->summary, 60) : null),
                 TextColumn::make('category.name')
-                    ->label('Kategori')
+                    ->label(__('Kategori'))
                     ->badge()
                     ->color('info')
                     ->sortable(),
                 TextColumn::make('user.name')
-                    ->label('Penulis')
+                    ->label(__('Penulis'))
                     ->toggleable(),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge(),
                 IconColumn::make('is_featured')
-                    ->label('Utama')
+                    ->label(__('Utama'))
                     ->boolean(),
                 TextColumn::make('published_at')
-                    ->label('Terbit')
+                    ->label(__('Terbit'))
                     ->dateTime('d M Y H:i')
                     ->sortable(),
                 TextColumn::make('view_count')
-                    ->label('Dibaca')
+                    ->label(__('Dibaca'))
                     ->numeric()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -58,10 +58,10 @@ class PostsTable
             ->filters([
                 SelectFilter::make('category')
                     ->relationship('category', 'name')
-                    ->label('Filter Kategori'),
+                    ->label(__('Filter Kategori')),
                 SelectFilter::make('status')
                     ->options(PostStatus::class)
-                    ->label('Filter Status'),
+                    ->label(__('Filter Status')),
             ])
             ->recordActions([
                 EditAction::make(),

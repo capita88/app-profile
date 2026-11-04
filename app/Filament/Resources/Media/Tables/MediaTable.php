@@ -17,20 +17,20 @@ class MediaTable
         return $table
             ->columns([
                 ImageColumn::make('file_path')
-                    ->label('Pratinjau')
+                    ->label(__('Pratinjau'))
                     ->disk('public')
                     ->square(),
                 TextColumn::make('file_name')
-                    ->label('Nama File')
+                    ->label(__('Nama File'))
                     ->searchable()
                     ->sortable()
                     ->default(fn ($record) => basename($record->file_path)),
                 TextColumn::make('mime_type')
-                    ->label('Tipe')
+                    ->label(__('Tipe'))
                     ->badge()
                     ->color('gray'),
                 TextColumn::make('file_size')
-                    ->label('Ukuran')
+                    ->label(__('Ukuran'))
                     ->formatStateUsing(function ($state) {
                         if (! $state) {
                             return '-';
@@ -45,10 +45,10 @@ class MediaTable
                         return round($state / 1048576, 1).' MB';
                     }),
                 TextColumn::make('user.name')
-                    ->label('Pengunggah')
+                    ->label(__('Pengunggah'))
                     ->toggleable(),
                 TextColumn::make('created_at')
-                    ->label('Diunggah')
+                    ->label(__('Diunggah'))
                     ->dateTime('d M Y H:i')
                     ->sortable(),
             ])

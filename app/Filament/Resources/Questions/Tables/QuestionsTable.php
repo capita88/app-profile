@@ -18,29 +18,29 @@ class QuestionsTable
         return $table
             ->columns([
                 TextColumn::make('created_at')
-                    ->label('Tanggal Masuk')
+                    ->label(__('Tanggal Masuk'))
                     ->dateTime('d M Y H:i')
                     ->sortable(),
                 TextColumn::make('name')
-                    ->label('Penanya')
+                    ->label(__('Penanya'))
                     ->searchable()
                     ->sortable()
                     ->description(fn ($record) => $record->email),
                 TextColumn::make('subject')
-                    ->label('Subjek Pertanyaan')
+                    ->label(__('Subjek Pertanyaan'))
                     ->searchable()
                     ->wrap()
                     ->limit(50),
                 TextColumn::make('topic.name')
-                    ->label('Topik')
+                    ->label(__('Topik'))
                     ->badge()
                     ->color('info')
                     ->sortable(),
                 TextColumn::make('status')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->badge(),
                 TextColumn::make('answers_count')
-                    ->label('Tanggapan')
+                    ->label(__('Tanggapan'))
                     ->counts('answers')
                     ->badge()
                     ->color('success'),
@@ -49,13 +49,13 @@ class QuestionsTable
             ->filters([
                 SelectFilter::make('status')
                     ->options(QuestionStatus::class)
-                    ->label('Filter Status'),
+                    ->label(__('Filter Status')),
                 SelectFilter::make('topic')
                     ->relationship('topic', 'name')
-                    ->label('Filter Topik'),
+                    ->label(__('Filter Topik')),
             ])
             ->recordActions([
-                EditAction::make()->label('Tinjau & Jawab'),
+                EditAction::make()->label(__('Tinjau & Jawab')),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

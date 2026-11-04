@@ -17,31 +17,31 @@ class QuestionTopicsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Nama Topik')
+                    ->label(__('Nama Topik'))
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label(__('Slug'))
                     ->searchable()
                     ->color('gray'),
                 TextColumn::make('questions_count')
-                    ->label('Pertanyaan Masuk')
+                    ->label(__('Pertanyaan Masuk'))
                     ->counts('questions')
                     ->badge()
                     ->color('warning')
                     ->sortable(),
                 TextColumn::make('faqs_count')
-                    ->label('FAQ Terkait')
+                    ->label(__('FAQ Terkait'))
                     ->counts('faqs')
                     ->badge()
                     ->color('info')
                     ->sortable(),
                 TextColumn::make('sort_order')
-                    ->label('Urutan')
+                    ->label(__('Urutan'))
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')
-                    ->label('Status')
+                    ->label(__('Status'))
                     ->boolean(),
             ])
             ->defaultSort('sort_order', 'asc')

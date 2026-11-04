@@ -24,9 +24,20 @@ class SlideResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $modelLabel = 'Slide Banner';
+    public static function getModelLabel(): string
+    {
+        return __('Slide Banner');
+    }
 
-    protected static ?string $pluralModelLabel = 'Slide Banner';
+    public static function getPluralModelLabel(): string
+    {
+        return __('Slide Banner');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Slide Banner');
+    }
 
     public static function form(Schema $schema): Schema
     {
