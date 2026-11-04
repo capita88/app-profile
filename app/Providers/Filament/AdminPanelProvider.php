@@ -82,8 +82,12 @@ class AdminPanelProvider extends PanelProvider
                     'id' => 'Bahasa Indonesia',
                     'en' => 'English',
                 ])
+                ->flags([
+                    'id' => asset('flags/id.svg'),
+                    'en' => asset('flags/en.svg'),
+                ])
+                ->circular()
                 ->visible(outsidePanels: true);
         });
     }
 }
-

@@ -14,6 +14,9 @@ class LanguageSwitchTest extends TestCase
         $this->assertEquals(['id', 'en'], $switch->getLocales());
         $this->assertEquals('Bahasa Indonesia', $switch->getLabels()['id'] ?? null);
         $this->assertEquals('English', $switch->getLabels()['en'] ?? null);
+        $this->assertStringContainsString('flags/id.svg', $switch->getFlags()['id'] ?? '');
+        $this->assertStringContainsString('flags/en.svg', $switch->getFlags()['en'] ?? '');
+        $this->assertTrue($switch->isCircular());
     }
 
     public function test_admin_login_page_renders_with_language_switch(): void
