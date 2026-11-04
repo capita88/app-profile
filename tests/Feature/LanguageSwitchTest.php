@@ -36,4 +36,24 @@ class LanguageSwitchTest extends TestCase
 
         $this->assertEquals('id', app()->getLocale());
     }
+
+    public function test_panel_brand_and_navigation_groups_support_english(): void
+    {
+        $panel = filament()->getPanel('admin');
+
+        app()->setLocale('en');
+        $this->assertEquals('CMS & Services Portal', $panel->getBrandName());
+        $groups = $panel->getNavigationGroups();
+        $this->assertEquals('Content & News', $groups['Konten & Berita']->getLabel());
+        $this->assertEquals('Appearance & Navigation', $groups['Tampilan & Navigasi']->getLabel());
+        $this->assertEquals('Public Services', $groups['Layanan Masyarakat']->getLabel());
+        $this->assertEquals('Settings', $groups['Pengaturan']->getLabel());
+
+        app()->setLocale('id');
+        $this->assertEquals('Portal CMS & Layanan', $panel->getBrandName());
+        $this->assertEquals('Konten & Berita', $groups['Konten & Berita']->getLabel());
+        $this->assertEquals('Tampilan & Navigasi', $groups['Tampilan & Navigasi']->getLabel());
+        $this->assertEquals('Layanan Masyarakat', $groups['Layanan Masyarakat']->getLabel());
+        $this->assertEquals('Pengaturan', $groups['Pengaturan']->getLabel());
+    }
 }

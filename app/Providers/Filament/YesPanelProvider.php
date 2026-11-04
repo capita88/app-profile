@@ -7,6 +7,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -29,7 +30,7 @@ class YesPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('Portal CMS & Layanan')
+            ->brandName(fn (): string => __('Portal CMS & Layanan'))
             ->colors([
                 'primary' => Color::Indigo,
             ])
@@ -37,10 +38,14 @@ class YesPanelProvider extends PanelProvider
             ->resourceCreatePageRedirect('index')
             ->resourceEditPageRedirect('index')
             ->navigationGroups([
-                'Konten & Berita',
-                'Tampilan & Navigasi',
-                'Layanan Masyarakat',
-                'Pengaturan',
+                'Konten & Berita' => NavigationGroup::make()
+                    ->label(fn (): string => __('Konten & Berita')),
+                'Tampilan & Navigasi' => NavigationGroup::make()
+                    ->label(fn (): string => __('Tampilan & Navigasi')),
+                'Layanan Masyarakat' => NavigationGroup::make()
+                    ->label(fn (): string => __('Layanan Masyarakat')),
+                'Pengaturan' => NavigationGroup::make()
+                    ->label(fn (): string => __('Pengaturan')),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
