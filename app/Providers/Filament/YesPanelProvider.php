@@ -32,6 +32,8 @@ class YesPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Indigo,
             ])
+            ->resourceCreatePageRedirect('index')
+            ->resourceEditPageRedirect('index')
             ->navigationGroups([
                 'Konten & Berita',
                 'Tampilan & Navigasi',
