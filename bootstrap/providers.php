@@ -1,6 +1,9 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\Filament\YesPanelProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\Filament\YesPanelProvider::class,
+    AppServiceProvider::class,
+    YesPanelProvider::class,
 ];
