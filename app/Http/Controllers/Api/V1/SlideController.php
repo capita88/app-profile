@@ -19,4 +19,3 @@ class SlideController extends Controller
         return SlideResource::collection($slides);
     }
 }
-

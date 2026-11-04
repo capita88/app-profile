@@ -54,4 +54,3 @@ class Page extends Model
         return $query->where('status', PageStatus::Published);
     }
 }
-

@@ -23,4 +23,3 @@ class QuestionTopicController extends Controller
         return QuestionTopicResource::collection($topics);
     }
 }
-

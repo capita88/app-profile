@@ -54,4 +54,3 @@ class MenuItem extends Model
         return $this->morphTo();
     }
 }
-

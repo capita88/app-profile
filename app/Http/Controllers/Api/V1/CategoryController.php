@@ -20,4 +20,3 @@ class CategoryController extends Controller
         return CategoryResource::collection($categories);
     }
 }
-

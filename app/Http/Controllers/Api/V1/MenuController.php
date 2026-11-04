@@ -29,4 +29,3 @@ class MenuController extends Controller
         ]);
     }
 }
-

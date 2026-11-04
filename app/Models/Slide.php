@@ -50,4 +50,3 @@ class Slide extends Model
             });
     }
 }
-

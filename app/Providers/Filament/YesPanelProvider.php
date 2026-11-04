@@ -32,6 +32,7 @@ class YesPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Indigo,
             ])
+            ->spa()
             ->resourceCreatePageRedirect('index')
             ->resourceEditPageRedirect('index')
             ->navigationGroups([

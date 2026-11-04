@@ -40,4 +40,3 @@ class Media extends Model
         return Storage::disk($this->disk)->url($this->file_path);
     }
 }
-

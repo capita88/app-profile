@@ -19,4 +19,3 @@ enum MenuLocation: string implements HasLabel
         };
     }
 }
-

@@ -20,4 +20,3 @@ class SlideResource extends JsonResource
         ];
     }
 }
-

@@ -57,4 +57,3 @@ class Question extends Model
         return $query->where('status', QuestionStatus::Pending);
     }
 }
-

@@ -21,4 +21,3 @@ class QuestionAnswerResource extends JsonResource
         ];
     }
 }
-

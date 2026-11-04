@@ -35,4 +35,3 @@ class Menu extends Model
         return $this->hasMany(MenuItem::class)->whereNull('parent_id')->orderBy('sort_order');
     }
 }
-

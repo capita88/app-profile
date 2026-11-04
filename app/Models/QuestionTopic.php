@@ -49,4 +49,3 @@ class QuestionTopic extends Model
         return $this->hasMany(Faq::class, 'topic_id');
     }
 }
-

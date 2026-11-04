@@ -19,4 +19,3 @@ class FaqResource extends JsonResource
         ];
     }
 }
-

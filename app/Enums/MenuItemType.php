@@ -21,4 +21,3 @@ enum MenuItemType: string implements HasLabel
         };
     }
 }
-

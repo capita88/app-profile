@@ -20,4 +20,3 @@ class QuestionTopicResource extends JsonResource
         ];
     }
 }
-

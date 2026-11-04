@@ -33,4 +33,3 @@ class FaqController extends Controller
         return FaqResource::collection($query->get());
     }
 }
-
