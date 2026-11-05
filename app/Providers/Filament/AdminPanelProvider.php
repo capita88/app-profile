@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandName(fn (): string => __('Portal CMS & Layanan'))
+            ->font('Poppins')
             ->colors([
                 'primary' => Color::Indigo,
             ])
